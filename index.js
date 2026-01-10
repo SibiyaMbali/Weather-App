@@ -1,6 +1,6 @@
 async function getWeather() {
   const city = document.getElementById("cityInput").value;
-  const apiKey = "YOUR_API_KEY"; // Replace with your OpenWeatherMap API key
+  const apiKey = "537e219293d91a7737eeaa391beac630"; // <-- replace here only
   const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
   try {
@@ -15,11 +15,9 @@ async function getWeather() {
         <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
       `;
     } else {
-      document.getElementById("weatherResult").innerHTML = `<p>City not found!</p>`;
+      document.getElementById("weatherResult").innerHTML = `<p>${data.message}</p>`;
     }
   } catch (error) {
     document.getElementById("weatherResult").innerHTML = `<p>Error fetching data.</p>`;
   }
 }
-
-
